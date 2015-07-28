@@ -1,0 +1,48 @@
+# Name of your program
+package "RRNAFold" 
+purpose "Uses vienna RNA folding algorithms to produce secondary structures for RRNA package"
+usage "RRNAFold [options]\n"
+version "0.1.0"
+# Version of your program
+#version "2.0"   # don't use version if you're using automake
+
+
+description "reads in a set of sequences from a file containing one sequence per line and produces an output file that contains coordinates for the secondary structures of each sequence."
+
+
+# Options
+section "Input Options"
+sectiondesc="Below are command line options which alter the general input behavior of RRNAFold\n"
+
+option "input-file" i
+"Path to file containing the sequences to be folded\n"
+string
+default="input.dat"
+required
+
+section "Algorithm Options"
+sectiondesc="Options taken as inputs to vienna's RNAFold algorithms\n"
+
+option "temperature" t
+"Temperature passed to the viennaFold secondary structure algorithm\n"
+float
+default="30.0"
+optional
+
+option "fold-type" f
+"Dictates the type of output returned"
+int
+default="1"
+optional
+
+section "Output Options"
+sectiondesc="Options for defining the output of RRNAFold\n"
+
+option  "output-file"  o
+"Name of file where secondary structure coordinates are outputed\n"
+string
+default="output.dat"
+required
+
+text    "\nIf in doubt our program is right, nature is at fault.\nComments should be sent to\
+ bida.john@gmail.com.\n"
